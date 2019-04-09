@@ -1,0 +1,16 @@
+{% extends 'generic/base.html' %}
+
+{% block title %}HOME{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div class="welcome_banner">
+        <h2>welcome, {{user.username }}!</h2>
+        <h3>Here we go!</h3>
+    </div>
+    {% else %}
+    <div>
+        <h3>Bu-bu-bu-BUDGETS!</h3> 
+    </div>
+    {% endif %}
+{% endblock content %}
