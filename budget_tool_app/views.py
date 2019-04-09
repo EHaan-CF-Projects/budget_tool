@@ -45,14 +45,13 @@ class BudgetCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class BudgetCreateView(LoginRequiredMixin, CreateView):
+class TransactionCreateView(LoginRequiredMixin, CreateView):
     """Defines the Create New Transaction View."""
     
-    template_name = './create_Transaction.html'
+    template_name = './create_transaction.html'
     model = Transaction
     form_class = TransactionForm
-    # should actually return to the budget it is related to
-    success_url = reverse_lazy('budget_list')
+    success_url = reverse_lazy('budget_detail')
     login_url = reverse_lazy('auth_login')
 
     def form_valid(self, form):

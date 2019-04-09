@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Create New Budget</h1>
-<p><a href="#">Add new Budget</a></p>
+<p><a href="{% url 'budget_detail' %}">Add new Budget</a></p>
 <h1>Budget List</h1>
 <div>
     {% for budget in budgets %}
