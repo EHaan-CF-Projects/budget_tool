@@ -3,11 +3,11 @@ from .models import Budget, Transaction
 
 
 class BudgetForm(ModelForm):
-    class meta:
+    class Meta:
         model = Budget
         fields = ['name', 'total_budget']
 
 class TransactionForm(ModelForm):
-    class meta:
+    class Meta:
         model = Transaction
-        fields = ['budget', 'type_of', 'amount', 'description']
+        fields = ['type_of', 'amount', 'description']

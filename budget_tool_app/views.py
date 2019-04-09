@@ -29,7 +29,12 @@ class BudgetDetailView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         """Renders list of user-specific transaction from the database related to the signed-in user."""
-        return Transaction.objects.all()
+        return Transaction.objects.filter(budget__id=self.kwargs['pk'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['budget'] = Budget.objects.get(pk=self.kwargs['pk'])
+        return context
 
 class BudgetCreateView(LoginRequiredMixin, CreateView):
     """Defines the Create New Budget View."""
@@ -56,5 +61,10 @@ class TransactionCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         """Validates the Transaction form."""
+        transaction = form.save(commit=False)
+        transaction.budget = Budget.objects.get(pk=self.kwargs['pk'])
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('budget_detail', kwargs={'pk': self.kwargs['pk']})
