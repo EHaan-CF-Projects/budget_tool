@@ -1,0 +1,12 @@
+{% extends 'generic/base.html' %}
+
+{% block title %}Detail{% endblock title %}
+
+{% block content %}
+<div>
+    {% for transaction in transactions %}
+        <h4>{{ transaction.type_of }} : {{ transaction.amount }}</h4>
+        <p>{{ transaction.description }}</p>
+    {% endfor %}
+</div>
+{% endblock content %}

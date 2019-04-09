@@ -1,0 +1,13 @@
+{% extends 'generic/base.html' %}
+
+{% block title %}List{% endblock title %}
+
+{% block content %}
+<h2>Budget List</h2>
+<div>
+    {% for budget in budgets %}
+    <h4">{{ budget.name }}</h4>
+    <h2>Start: {{ budget.total_budget }}</h2>
+    {% endfor %}
+</div>
+{% endblock content %}
