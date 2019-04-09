@@ -4,6 +4,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Budget(models.Model):
     """Budget Databse:
+
+    Parameters:
+        user (ForeignKey): relationship to a user.
+        name (str): name of the budget.
+        total_budget (float): budget amount.
+        remaining_budget (float): budget amount after a given transaction.
     """
 
     user = models.ForeignKey(User, related_name='budgets', null=True, on_delete=models.CASCADE)
@@ -22,6 +28,12 @@ class Budget(models.Model):
     
 class Transaction(models.Model):
     """Transaction Database:
+
+    Parameters:
+        budget (ForeignKey): relationship to a budget.
+        type_of (choice): options for 'withdrawal' or 'deposit'.
+        amount (float): transaction amount.
+        description (str): brief summary of transaction.
     """
 
     TYPES = [
