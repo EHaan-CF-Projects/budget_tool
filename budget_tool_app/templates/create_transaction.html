@@ -1,0 +1,12 @@
+{% extend 'generic/base.html' %}
+
+{% block title %}New Transaction{% endblock title %}
+
+{% block content %}
+<h2>Create New Transaction</h2>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock content %}

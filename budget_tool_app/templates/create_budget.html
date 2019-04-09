@@ -1,0 +1,13 @@
+{% extend 'generic/base.html' %}
+
+{% block title %}New Budget{% endblock title %}
+
+{% block content %}
+<h2>Create New Budget</h2>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+</div>
+{% endblock content %}

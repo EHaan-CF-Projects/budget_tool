@@ -3,11 +3,12 @@
 {% block title %}List{% endblock title %}
 
 {% block content %}
-<h2>Budget List</h2>
+<h1>Create New Budget</h1>
+<p><a href="#">Add new Budget</a></p>
+<h1>Budget List</h1>
 <div>
     {% for budget in budgets %}
-    <h4>{{ budget.name }}</h4>
-    <h2>Start: {{ budget.total_budget }}</h2>
+    <h2><a href="{% url 'budget_detail' id=budget.id %}">{{ budget.name }}</a></h2>
     {% endfor %}
 </div>
 {% endblock content %}
