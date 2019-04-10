@@ -32,6 +32,7 @@ class BudgetDetailView(LoginRequiredMixin, ListView):
         return Transaction.objects.filter(budget__id=self.kwargs['pk'])
 
     def get_context_data(self, **kwargs):
+        """Obtains the selected budget id from the context"""
         context = super().get_context_data(**kwargs)
         context['budget'] = Budget.objects.get(pk=self.kwargs['pk'])
         return context
@@ -67,4 +68,5 @@ class TransactionCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
+        """Overrides the url redirect to include the budget id in the url path."""
         return reverse_lazy('budget_detail', kwargs={'pk': self.kwargs['pk']})
