@@ -23,4 +23,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', home_view, name='home'),
     path('budget/', include('budget_tool_app.urls')),
+    path('api/v1/', include('budget_tool_api.urls')),
 ]
