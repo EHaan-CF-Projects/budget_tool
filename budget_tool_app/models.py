@@ -42,7 +42,7 @@ class Transaction(models.Model):
     ]
 
     budget = models.ForeignKey(Budget, related_name='transactions', null=True, on_delete=models.CASCADE)
-    type_of = models.CharField(choices=TYPES, default='available', max_length=48)
+    type_of = models.CharField(choices=TYPES, default='withdrawal', max_length=48)
     amount = models.FloatField(0.00)
     description = models.CharField(max_length=256)
 
