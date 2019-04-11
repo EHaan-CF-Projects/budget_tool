@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_registration',
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    
     'budget_tool_project',
     'budget_tool_app',
     'budget_tool_api',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [

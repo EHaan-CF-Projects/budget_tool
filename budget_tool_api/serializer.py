@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = super().create({
-            'username': validated_data['username'],
+            'username': validated_data['username'].lower(),
             'email': validated_data['email'],
         })
 
