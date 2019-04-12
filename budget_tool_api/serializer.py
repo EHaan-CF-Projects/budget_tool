@@ -31,7 +31,7 @@ class BudgetSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'owner', 'user', 'name', 'total_budget')
 
 
-class TransactionSerializer(serializers.HyperlinkedRelatedField):
+class TransactionSerializer(serializers.HyperlinkedModelSerializer):
     budget = serializers.HyperlinkedRelatedField(view_name='budget-detail-api', read_only=True)
 
     class Meta:

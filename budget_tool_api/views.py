@@ -47,4 +47,5 @@ class TransactionListAPIView(generics.ListCreateAPIView):
     serializer_class = TransactionSerializer
 
     def get_queryset(self):
+        print( Transaction.objects.filter(budget__user__username=self.request.user.username))
         return Transaction.objects.filter(budget__user__username=self.request.user.username)
