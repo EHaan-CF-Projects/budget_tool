@@ -11,6 +11,7 @@ django-registration = "*"
 django = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
+factory-boy = "*"
 
 [requires]
 python_version = "3.7"

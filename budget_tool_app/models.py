@@ -43,7 +43,7 @@ class Transaction(models.Model):
 
     budget = models.ForeignKey(Budget, related_name='transactions', null=True, on_delete=models.CASCADE)
     type_of = models.CharField(choices=TYPES, default='withdrawal', max_length=48)
-    amount = models.FloatField(0.00)
+    amount = models.FloatField()
     description = models.CharField(max_length=256)
 
     def __repr__(self):
