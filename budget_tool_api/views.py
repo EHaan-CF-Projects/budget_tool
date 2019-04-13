@@ -48,3 +48,14 @@ class TransactionListAPIView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         return Transaction.objects.filter(budget__user__username=self.request.user.username)
+
+    # def perform_create(self, serializer):
+    #     return serializer.save()
+
+class TransactionDetailAPIView(generics.RetrieveAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+    serializer_class = TransactionSerializer
+
+    def get_queryset(self):
+        return Transaction.objects.filter(budget__user__username=self.request.user.username)
