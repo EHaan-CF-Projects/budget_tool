@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.authtoken import views
-from .views import RegisterAPIView, UserAPIView, BudgetListAPIView, BudgetDetailAPIView, TransactionListAPIView
+from .views import RegisterAPIView, UserAPIView, BudgetListAPIView, BudgetDetailAPIView, TransactionListAPIView, TransactionDetailAPIView
 
 
 urlpatterns = [
@@ -10,4 +10,5 @@ urlpatterns = [
     path('budget_list/', BudgetListAPIView.as_view(), name='budget-list-api'),
     path('budget_detail/<int:pk>', BudgetDetailAPIView.as_view(), name='budget-detail-api'),
     path('transaction_list/', TransactionListAPIView.as_view(), name='transaction-list-api'),
+    path('transaction_detail/<int:pk>', TransactionDetailAPIView.as_view(), name='transaction-detail-api'),
 ]
