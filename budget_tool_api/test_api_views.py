@@ -8,7 +8,7 @@ from budget_tool_api.views import BudgetListAPIView, TransactionListAPIView
 import json
 
 
-class TestUserAPI(APITestCase):
+class TestUserAPI(TestCase):
     # need help understanding why I get 404 instead of 201
     def test_user_registration(self):
         user = {
