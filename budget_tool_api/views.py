@@ -102,16 +102,19 @@ class TransactionListAPIView(generics.ListCreateAPIView):
                 amount (int/float): required. Transaction amount.
                 description (str): optional. Transaction details.
     """
+
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
     serializer_class = TransactionSerializer
 
     def get_queryset(self):
         """Limits queryset to transactions only relavent to the signed in user and specified budget."""
+
         return Transaction.objects.filter(budget__user__username=self.request.user.username)
 
     def perform_create(self, serializer):
-    """Saves a new transaction to the database for the signed in user and specified budget."""
+        """Saves a new transaction to the database for the signed in user and specified budget."""
+
         return serializer.save()
 
 class TransactionDetailAPIView(generics.RetrieveAPIView):
@@ -123,10 +126,12 @@ class TransactionDetailAPIView(generics.RetrieveAPIView):
                 Token (str): required. Auth token provided to the user upon login.
                 *Must provide a valid budget id in the url.
     """
+
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
     serializer_class = TransactionSerializer
 
     def get_queryset(self):
         """Limits queryset to the Transactions of the budget specified via the budget id in the url."""
+        
         return Transaction.objects.filter(budget__user__username=self.request.user.username)
