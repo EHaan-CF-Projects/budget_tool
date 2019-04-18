@@ -12,6 +12,7 @@ django = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
 factory-boy = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"

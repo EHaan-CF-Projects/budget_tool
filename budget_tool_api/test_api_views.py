@@ -47,7 +47,7 @@ class TestBudetAPI(APITestCase):
         user = User.objects.get(username='test_user')
         view = BudgetListAPIView.as_view()
         factory = APIRequestFactory()
-        request = factory.get('/api/v1/budget_list')
+        request = factory.get('/api/v1/budgets/')
         force_authenticate(request, user=user, token=user.auth_token)
         response = view(request)
 
